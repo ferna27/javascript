@@ -1,10 +1,11 @@
-'use strict'
+const express = require("express");
 
-const express = require (express);
+ let app = express();
+app.use(express.static(__dirname + "/public"))
+ app.get("/",(req,res)=> {
 
-let app = express();
+    res.sendFile(__dirname + "/public/index.html")
+ });
 
-app.listen (3000,()=>{
-console.log('API REST corriendo en http://localhost:3000');
-
-});
+ app.listen(5000);
+ console.log("puerto corriendo http://localhost:5000 ");
